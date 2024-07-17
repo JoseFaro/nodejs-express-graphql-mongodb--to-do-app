@@ -1,0 +1,40 @@
+{
+  "name": "to-do-app",
+  "version": "1.0.0",
+  "description": "To do app with graphql, express, nodejs, mongodb, prisma",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "serve": "node dist/index.js",
+    "start": "nodemon src/index.js --exec babel-node",
+    "build": "babel src -d dist --source-maps",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist",
+    "compile": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.10.4",
+    "@babel/node": "^7.24.8",
+    "@graphql-tools/schema": "^10.0.4",
+    "@prisma/client": "^5.17.0",
+    "@types/node": "^20.14.11",
+    "apollo-server-express": "^3.13.0",
+    "express": "^4.19.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.9.0",
+    "graphql-tools": "^9.0.1",
+    "nodemon": "^3.1.4",
+    "prisma": "^5.17.0",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.5.3",
+    "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.24.9",
+    "@babel/preset-env": "^7.24.8"
+  },
+  "browserslist": "> 0.25%, not dead"
+}
