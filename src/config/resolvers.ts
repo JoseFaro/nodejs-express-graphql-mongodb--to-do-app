@@ -1,5 +1,5 @@
-import { dateScalar } from './scalarTypes.js';
-import { toDo } from '../queries/toDo.queries.js';
+import { dateScalar } from '../utils/prismaTypes/scalarTypes.js';
+import { toDo } from '../queries/toDo.queries.ts';
 
 export const resolvers = {
   Date: dateScalar,

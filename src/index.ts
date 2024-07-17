@@ -1,15 +1,11 @@
-import express, { Express, Request, Response } from 'express'
+import express, { Express } from 'express'
 
-import { ApolloServer  } from 'apollo-server-express'
-import { prisma } from "./config/prisma.js";
-import { resolvers } from './config/resolvers.js'
+import { ApolloServer } from 'apollo-server-express'
+import { IApolloContext } from './index.interfaces.js';
+import { prisma } from "./config/prisma.ts";
+import { resolvers } from './config/resolvers.ts'
 import { typeDefs } from './config/typeDefs.js'
-
-interface IApolloContext {
-  req: Request,
-  res: Response,
-}
-
+ 
 const port: Number = 3000
 const app: Express = express()
 
