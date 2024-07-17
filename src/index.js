@@ -2,16 +2,16 @@ import express from 'express'
 
 import { ApolloServer  } from 'apollo-server-express'
 import { prisma } from "./config/prisma.js";
+import { resolvers } from './config/resolvers.js'
 import { typeDefs } from './config/typeDefs.js'
-import { typeDefs, resolvers } from './config/resolvers.js'
 
 const port = 3000
 const app = express()
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
   context: ({ req, res }) => ({ prisma, req, res }),
+  resolvers,
+  typeDefs,
 })
 
 const startServer = async () => {

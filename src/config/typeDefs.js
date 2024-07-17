@@ -4,7 +4,7 @@ export const typeDefs = gql`
   scalar Date
   
   type ToDo {
-    id: Int!
+    id: String
     description: String
     title: String
 
@@ -14,11 +14,23 @@ export const typeDefs = gql`
   }
 
   type Comment {
-    id: Int
+    id: String
     comment: String
   }
 
   type Query {
+    getToDo(id: String): ToDo
     toDoList: [ToDo]
+  }
+
+  type Mutation {
+    addToDo(input: ToDoInput): ToDo
+    deleteToDo(id: String): ToDo
+    updateToDo(id: String input: ToDoInput): ToDo
+  }
+
+  input ToDoInput {
+    description: String
+    title: String
   }
 `
