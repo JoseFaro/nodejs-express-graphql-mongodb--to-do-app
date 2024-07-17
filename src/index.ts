@@ -1,15 +1,20 @@
-import express from 'express'
+import express, { Express, Request, Response } from 'express'
 
 import { ApolloServer  } from 'apollo-server-express'
 import { prisma } from "./config/prisma.js";
 import { resolvers } from './config/resolvers.js'
 import { typeDefs } from './config/typeDefs.js'
 
-const port = 3000
-const app = express()
+interface IApolloContext {
+  req: Request,
+  res: Response,
+}
+
+const port: Number = 3000
+const app: Express = express()
 
 const server = new ApolloServer({
-  context: ({ req, res }) => ({ prisma, req, res }),
+  context: ({ req, res }: IApolloContext) => ({ prisma, req, res }),
   resolvers,
   typeDefs,
 })
