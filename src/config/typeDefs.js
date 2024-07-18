@@ -2,7 +2,7 @@ import { gql } from 'apollo-server-express';
 
 export const typeDefs = gql`
   scalar Date
-  
+
   type ToDo {
     id: String
     description: String
@@ -26,11 +26,11 @@ export const typeDefs = gql`
   type Mutation {
     addToDo(input: ToDoInput): ToDo
     deleteToDo(id: String): ToDo
-    updateToDo(id: String input: ToDoInput): ToDo
+    updateToDo(id: String, input: ToDoInput): ToDo
   }
 
   input ToDoInput {
     description: String
     title: String
   }
-`
+`;

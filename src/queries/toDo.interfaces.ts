@@ -1,7 +1,7 @@
 export interface IToDo {
-    id?: String;
-    title: String;
-    description: String;
-    createdAt?: any;
-    updatedAt?: any;
+  id?: string;
+  title: string;
+  description: string;
+  createdAt?: any;
+  updatedAt?: any;
 }

@@ -12,4 +12,4 @@ export const resolvers = {
     getToDo: toDo.get,
     toDoList: toDo.list,
   },
-}
+};

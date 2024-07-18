@@ -9,9 +9,9 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "types": ["node"],
+    "types": ["node"]
   },
-  "ts-node": { 
+  "ts-node": {
     "esm": true
   }
 }
