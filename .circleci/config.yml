@@ -1,0 +1,33 @@
+# Couldn't automatically generate a config from your source code.
+# This is a generic template to serve as a base for your custom config
+# See: https://circleci.com/docs/configuration-reference
+# Stacks detected: deps:php:shared/libraries/PHPMailer
+version: 2.1
+
+jobs:
+  deploy:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: SSH Configuration
+          command: |
+            sudo apt install sshpass
+            ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
+      - run:
+          name: Stash files to prepare for pull
+          command: |
+            sshpass -p $SSH_PASS ssh $SSH_USER@$SSH_HOST "git stash --quiet && git stash clear && exit"
+      - run:
+          name: SSH Dreamhost Web deploy
+          command: |
+            sshpass -p $SSH_PASS ssh $SSH_USER@$SSH_HOST "git pull origin master && exit"
+      - run:
+          name: SHH Dreamhost CMS deploy
+          command: |
+            sshpass -p $SSH_PASS ssh $SSH_USER@$SSH_HOST "yarn install && yarn build && npx pm2 startOrReload ecosystem.config.js --env production && npx pm2 save && exit"
+workflows:
+  deploy:
+    jobs:
+      - deploy
