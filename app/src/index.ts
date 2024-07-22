@@ -21,7 +21,7 @@ const startServer = async () => {
   server.applyMiddleware({ app });
 
   app.get('/githubWebhook', (req, re) => {
-    console.log('via - get');
+    console.log('via -  get');
   });
 
   app.post('/githubWebhook', (req, res) => {
