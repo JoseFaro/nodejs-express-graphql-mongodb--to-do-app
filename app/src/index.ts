@@ -20,12 +20,12 @@ const startServer = async () => {
 
   server.applyMiddleware({ app });
 
-  app.get('/githubWebhook', (req, res) => {
-    console.log('working', req, res);
+  app.get('/githubWebhook', (req) => {
+    console.log('working', req);
   });
 
-  app.post('/githubWebhook', (req, res) => {
-    console.log('working', req, res);
+  app.post('/githubWebhook', (req) => {
+    console.log('working', req);
   });
 
   app.listen({ port }, () => {
