@@ -24,6 +24,10 @@ const startServer = async () => {
     console.log('working', req, res);
   });
 
+  app.post('/githubWebhook', (req, res) => {
+    console.log('working', req, res);
+  });
+
   app.listen({ port }, () => {
     // eslint-disable-next-line
     console.log(`Server started on port: ${port}`);
